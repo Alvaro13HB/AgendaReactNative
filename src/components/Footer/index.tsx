@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import styles from "./style";
+import { View, Image, TouchableOpacity } from "react-native";
 
 export function Footer(){
     return(
@@ -21,28 +22,3 @@ export function Footer(){
         </View>
     );
 };
-
-function change(){
-    return;
-}
-
-const styles = StyleSheet.create({
-    footer: {
-        height: 80,
-        backgroundColor: "black",
-        display: "flex",
-        justifyContent: "space-around",
-        flexDirection: "row",
-        alignItems: "center",
-    },
-    button1: {
-        flex: 0.5,
-        flexDirection: "column",
-        backgroundColor: "#000",
-    },
-    button2: {
-        flex: 0.5,
-        flexDirection: "column",
-        backgroundColor: "#000",
-    }
-});

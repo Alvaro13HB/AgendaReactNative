@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import styles from "./styles";
+import { Text, View, TouchableOpacity, Image } from "react-native";
 
 export function Contato(){
     return(
@@ -16,31 +17,3 @@ export function Contato(){
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 10,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexDirection: "row",
-        height: 50,
-        backgroundColor: "#000",
-    },
-    dados: {
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        height: 35,
-    },
-    nome: {
-        fontWeight: "bold",
-        fontSize: 15,
-        color: "#fff",
-    },
-    numero: {
-        fontWeight: "medium",
-        fontSize: 10,
-        color: "#fff",
-    }
-});
