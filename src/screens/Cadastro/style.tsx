@@ -47,9 +47,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#2c2f33"
     },
     input: {
+        display: "flex",
+        justifyContent: "center",
         alignItems: "center",
-        fontSize: 20,
-        height: 40,
+        fontSize: 18,
+        height: 45,
         borderColor: "#3c3f44",
         borderWidth: 1,
         borderRadius: 5,

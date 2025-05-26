@@ -2,12 +2,17 @@ import React from "react";
 import styles from "./styles";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 
-export function Contato(){
+interface ContatoProps {
+    nome: string;
+    numero: string;
+}
+
+export function Contato(ContatoProps: ContatoProps) {
     return(
         <View style={styles.container}>
             <View style={styles.dados}>
-                <Text style={styles.nome}>Álvaro</Text>
-                <Text style={styles.numero}>(35) 98871-9675</Text>
+                <Text style={styles.nome}>{ContatoProps.nome}</Text>
+                <Text style={styles.numero}>{ContatoProps.numero}</Text>
             </View>
             <View>
                 <TouchableOpacity>

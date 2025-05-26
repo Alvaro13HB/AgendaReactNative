@@ -1,10 +1,16 @@
 import React from "react";
-import { ScreenHome, ScreenCadastro } from "./screens";
+import { ComponentHeader, ComponentFooter } from "./components";
+import { NavigationContainer } from "@react-navigation/native";
+import Routes from "./routes";
 
 export default function App (){
     return (
         <>
-        <ScreenCadastro />
+            <NavigationContainer>
+                <ComponentHeader />
+                <Routes />
+                <ComponentFooter />
+            </NavigationContainer>
         </>
     );
 };
