@@ -1,33 +1,14 @@
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import fs from "fs";
+import MaskInput from "react-native-mask-input";
+import { File, Paths } from "expo-file-system/next";
 import styles from "./style";
 
-function mascaraNumero(mascara: string, numeroStr: string){
-    let i = numeroStr.length;
-    let saida = "#";
-    let texto = mascara.substring(i);
-    let resultado = numeroStr;
-    
-    while (texto.substring(0, 1) !== saida && texto.length) {
-        resultado += texto.substring(0, 1);
-        i++;
-        texto = mascara.substring(i);
-    }
-    
-    return resultado;
+function escreverArquivo(nome: string, numero: string){
+    const file = new File(Paths.cache, "../../data/data.txt");
+    file.write(`${nome}:${numero}\n`);
 }
 
-
-function escreverArquivo(nome: string, numero: string) {
-    fs.appendFile("data/data.txt", `${nome}:${numero}\n`, (err) => {
-        if (err) {
-            console.error("Erro ao escrever no arquivo:", err);
-        } else {
-            console.log("Contato adicionado com sucesso!");
-        }
-    });
-}
 
 export function Cadastro(){
     const [nome, setNome] = React.useState("");
@@ -40,12 +21,14 @@ export function Cadastro(){
                 <View style={styles.form}>
                     <View style={styles.control}>
                         <Text style={styles.texto}>Nome: </Text>
-                        <TextInput style={styles.input} onChangeText={text => setNome(text)}></TextInput>
+                        <TextInput style={styles.input} value={nome} onChangeText={text => setNome(text)}></TextInput>
                     </View>
 
                     <View style={styles.control}>
                         <Text style={styles.texto}>Número: </Text>
-                        <TextInput style={styles.input} keyboardType="numeric" onChangeText={text => setNumero(mascaraNumero("(##) #####-####", text))} ></TextInput>
+                        <MaskInput value={numero} style={styles.input} keyboardType="numeric" onChangeText={text => setNumero(text)} 
+                                   mask={['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} >
+                        </MaskInput>
                     </View>
                     
                     <TouchableOpacity style={styles.botao} onPress={() => {escreverArquivo(nome, numero)}}>
