@@ -16,7 +16,10 @@ export function Contato(ContatoProps: ContatoProps) {
             </View>
             <View>
                 <TouchableOpacity>
-                    <Image source={require("../../../assets/trash-can.png")}></Image>
+                    <Image 
+                        source={require("../../../assets/trash-can.png")}
+                        style={styles.trashIcon}
+                    />
                 </TouchableOpacity>
             </View>
         </View>

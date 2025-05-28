@@ -21,18 +21,33 @@ export function Cadastro(){
                 <View style={styles.form}>
                     <View style={styles.control}>
                         <Text style={styles.texto}>Nome: </Text>
-                        <TextInput style={styles.input} value={nome} onChangeText={text => setNome(text)}></TextInput>
+                        <TextInput 
+                            style={styles.input} 
+                            value={nome} 
+                            onChangeText={text => setNome(text)}
+                            placeholderTextColor="#72767d" // Cinza para placeholder
+                            placeholder="Digite o nome"
+                        />
                     </View>
 
                     <View style={styles.control}>
                         <Text style={styles.texto}>Número: </Text>
-                        <MaskInput value={numero} style={styles.input} keyboardType="numeric" onChangeText={text => setNumero(text)} 
-                                   mask={['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} >
-                        </MaskInput>
+                        <MaskInput 
+                            value={numero} 
+                            style={styles.input} 
+                            keyboardType="numeric" 
+                            onChangeText={text => setNumero(text)}
+                            placeholderTextColor="#72767d"
+                            placeholder="(00) 00000-0000"
+                            mask={['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} 
+                        />
                     </View>
                     
-                    <TouchableOpacity style={styles.botao} onPress={() => {escreverArquivo(nome, numero)}}>
-                        <Text style={styles.texto}>Cadastrar</Text>
+                    <TouchableOpacity 
+                        style={styles.botao} 
+                        onPress={() => escreverArquivo(nome, numero)}
+                    >
+                        <Text style={styles.botaoTexto}>Cadastrar</Text>
                     </TouchableOpacity>
                 </View>
             </View>

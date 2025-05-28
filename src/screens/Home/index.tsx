@@ -18,7 +18,7 @@ export function Home(){
 
     return(
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView style={styles.scrollView} contentContainerStyle={contatos.length === 0 ? styles.emptyState : null} >
                 {contatos.map((contato) => {
                     const [nome, numero] = contato.split(":");
                     return (

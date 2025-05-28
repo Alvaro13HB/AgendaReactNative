@@ -10,17 +10,25 @@ export function Footer() {
     return(
         <View style={styles.footer}>
             <View>
-                <TouchableOpacity style={styles.button1} onPress={() => {
-                    navigation.navigate("Home");
-                }}>
-                    <Image source={require("../../../assets/profile.png")} />
+                <TouchableOpacity 
+                    style={styles.button1} 
+                    onPress={() => navigation.navigate("Home")}
+                >
+                    <Image 
+                        source={require("../../../assets/profile.png")} 
+                        style={styles.icon}
+                    />
                 </TouchableOpacity>
             </View>
             <View>
-                <TouchableOpacity style={styles.button1} onPress={() => {
-                    navigation.navigate("Cadastro");
-                }}>
-                    <Image source={require("../../../assets/add.png")} />
+                <TouchableOpacity 
+                    style={styles.button1} 
+                    onPress={() => navigation.navigate("Cadastro")}
+                >
+                    <Image 
+                        source={require("../../../assets/add.png")} 
+                        style={styles.icon}
+                    />
                 </TouchableOpacity>
             </View>
         </View>
